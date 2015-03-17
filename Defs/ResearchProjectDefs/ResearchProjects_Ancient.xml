@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ResearchProjectDefs>
+
+  <ResearchProjectDef>
+    <defName>Research_Fire</defName>
+    <label>Fire</label>
+    <description>
+	Allows the creation of fire.
+    </description>
+    <descriptionDiscovered>  While your caveman was out and about, he tripped and accidentally discovered fire.
+
+- You may now construct campfires.
+- Unlocked the research Torches.
+    </descriptionDiscovered>
+    <totalCost>50</totalCost>
+  </ResearchProjectDef>
+  
+  <ResearchProjectDef>
+    <defName>Research_Torches</defName>
+    <label>Torches</label>
+    <description>
+	Allows the creation of torches.
+    </description>
+    <descriptionDiscovered>  While your caveman was out and about, he tripped again. Instead of accidentally discovering something of massive use,
+	he instead grabbed a burning log when he was getting up! He realized that you can use those flames and light stuff on fire with them! Or, you could
+	just use them for light.
+    </descriptionDiscovered>
+    <totalCost>150</totalCost>
+    <prerequisites>
+      <li>Research_Fire</li>
+    </prerequisites>
+  </ResearchProjectDef>
+
+  <ResearchProjectDef>
+      <defName>AncientWeapons</defName>
+	<label>Ancient Weapons</label>
+	<description>
+	Allows the creation of ancient weaponry - clubs, and slings.
+	</description>
+	<descriptionDiscovered> While your caveman was out and about, he found a weirdly shaped rock and accidentally bludgeoned a squirrel with it.
+	He was struck with a genius thought! He took a peice of muffalo leather and created some sort of rock-throwing device, and took a giant
+	piece of wood and made it into a dangerous bludgeon. Now you might not have	to bludgeon them with your hands!
+	
+- You may now create clubs and slings at an ancient weapons workshop.
+- Clubs can be created with any weapon material.
+- Slings need to be crafted with flint and animal leather.
+- Clubs have high damage, but slow swing speed. Slings have mid-low damage, but a somewhat fast projectile speed.</descriptionDiscovered>
+	<totalCost>200</totalCost>
+ </ResearchProjectDef>
+
+   <ResearchProjectDef>
+    <defName>AdvancedAncientWeapons</defName>
+	<label>Advanced Ancient Weapons</label>
+	<description>
+	Allows the creation of more advanced ancient weaponry - spears, tomahawks, and cable-backed bows.
+	</description>
+	<descriptionDiscovered> While your caveman was out and about, he tripped on a rock and almost killed himself. But, in the process of doing that, he was struck with another genius thought to add onto his old genius thought! He thought to himself... how can he upgrade what you already have? And then,he created the tomahawk, to upgrade the sling! It was just a throwing axe, but instead of throwing stone, it was sharp stone with a handle to make it better to throw with! He invented the spear, a stick with a sharp piece of flint at the end of it, useful for stabbing your friends and enemies alike! Lastly, he was struck with a completely new divine intervention... he created the cable-backed bow! It was like a normal bow, but with cable reinforces! Now you can stick it to the Hawa'hanaka Rh'akamash'uk Clan!
+	
+- You may now create stone spears, stone tomahawks, and cable-backed bows at ancient weapons workshop.
+- Spears are good for stabbing damage, and are fast for stabbing. However they are weak in their current state.
+- Tomahawks are great weapons, but have poor accuracy and range.
+- Cable-Backed-Bows are good weapons, but have a mid-sized reload time and aren't effective on most armours.</descriptionDiscovered>
+	<totalCost>350</totalCost>
+	<prerequisites>
+		<li>AncientWeapons</li>
+	</prerequisites>
+	   </ResearchProjectDef>
+	   
+	<ResearchProjectDef>
+		<defName>Research_Tailoring</defName>
+		<label>Tailoring</label>
+		<description>Allows you to create clothing for your cavemen.</description>
+		<descriptionDiscovered> While your caveman was out and about, he slipped on a squirrel and bludgeoned it. While bludgeoning it, he felt the extremely soft fur of the squirrel - and then he thought to himself, "Groo gre heugh hog?" (Translation: I want make clothes out of this.) And, then he did. He made some soft squirrelskin tribalwear. And he went down in history as that one guy who bludgeoned a squirrel.
+		
+-You may now create Ancient Tailoring Tables
+-Ancient Tailoring Tables allow for the creation of stone age clothing - basically, just fur clothing.</descriptionDiscovered>
+		<totalCost>300</totalCost>
+		</ResearchProjectDef>
+
+	<ResearchProjectDef>
+		<defName>Research_DirtRoads</defName>
+		<label>Dirt Roads</label>
+		<description>Allows you to create dirt roads that have an increased move speed.</description>
+		<descriptionDiscovered> While your caveman was out and about, he suddenly went into a blinding rage of fury. He picked some grass out of the ground, and eventually created a small pathway and paced around in circles around it. Eventually, he realized he could move faster on that than he could on normal grass.
+		
+-You may now create Dirt Roads.
+-You may now research The Wheel. (Be warned, it does nothing as of now - just a placeholder that links into other things.)</descriptionDiscovered>
+		<totalCost>150</totalCost>
+		</ResearchProjectDef>
+		
+	<ResearchProjectDef>
+		<defName>Research_CBBFireArrows</defName>
+		<label>Fire Arrows (Cable Backed Bow)</label>
+		<description> Allows you to create a version of the cable backed bow that can shoot flaming arrows.</description>
+		<descriptionDiscovered> While your caveman was out and about, he was about to shoot a muffallo, where then, he accidentally lit his arrowhead on fire! The muffalo later burned to death!
+		
+- You may now create a flaming-arrow variant of the Cable-Backed Bow.
+- It will appear as Cable-Backed-Bow (F).
+- Weapons with the (F) tag will be fire arrow variants.</descriptionDiscovered>
+		<totalCost>375</totalCost>
+		</ResearchProjectDef>
+		
+	<ResearchProjectDef>
+		<defName>Research_AncientMechanics</defName>
+		<label>Basic Mechanics</label>
+		<description> Allows you to create wooden gears, basically conduits but wooden, and very flammable and easy to destroy.</description>
+		<descriptionDiscovered> While your caveman was out and about, he saw a cave-painting of a man. The man's head had a weird shape, so he carved a rock to resemble that shape. Then, he did some other stuff and now he can do stuff with these stuff that he calls "Gears"!
+
+-You may now create wooden gears, basically conduits but wooden and veery flammable, easily created and destroyed.
+-You may now research the Water Mill (basic power)</descriptionDiscovered>
+		<totalCost>175</totalCost>
+		</ResearchProjectDef>
+		
+	<ResearchProjectDef>
+		<defName>Research_AncientMasonry</defName>
+		<label>Masonry</label>
+		<description>Allows you to build a Stoneworking table for stone weapons and a stonecutter.</description>
+		<descriptionDiscovered>While your caveman was out and about, he saw another tribe that had STONE. WALLS. He was so jealous, he made his own invention and now your tribe can have stone... things, but not quite walls yet!
+-You may now build a stone weapons table.
+-You may now build a stonecutting table.
+-You may now research Cloth Walls.
+-You may now research Basic Cover.</descriptionDiscovered>
+		<totalCost>325</totalCost>
+		</ResearchProjectDef>
+		
+	
+		
+</ResearchProjectDefs>

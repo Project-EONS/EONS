@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ThingDefs>
+  
+  
+	<ThingDef>
+		<category>Building</category>
+		<soundImpactDefault>BulletImpactMetal</soundImpactDefault>
+		<selectable>true</selectable>
+		<drawerType>MapMeshAndRealTime</drawerType>
+		<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+		<repairEffect>Repair</repairEffect>
+		<leaveResourcesWhenKilled>True</leaveResourcesWhenKilled>
+		<defName>WindMillbase</defName>
+		<eType>BuildingComplex</eType>
+		<label>Wind Mill</label>
+		<thingClass>EONs.Building_WindMill</thingClass>
+		<graphicPath>Things/Building/WindMillbase</graphicPath>
+		<graphicClass>Graphic_Single</graphicClass>
+		<altitudeLayer>BuildingTall</altitudeLayer>
+		<passability>Impassable</passability>
+		<fillPercent>0.8</fillPercent>
+		<statBases>
+			<MaxHealth>130</MaxHealth>
+			<WorkToMake>1050</WorkToMake>
+			<Flammability>1.0</Flammability>
+		</statBases>
+		<rotatable>false</rotatable>
+		<tickerType>Normal</tickerType>
+		<description>Using the high wind velocity in RimWorld this windMill utilizes frequent strong winds that provide a strong push within its central turbine and turn this into energy.
+		
+		*Don't build anything too close or this building won't produce energy. Provide 1 cell space.
+		</description>
+		<size>(3,3)</size>
+		<constructEffect>ConstructMetal</constructEffect>
+		<costList>
+			<Steel>1</Steel>
+		</costList>
+		<graphicOverdraw>false</graphicOverdraw>
+		<comps>
+			<li>
+				<compClass>CompPowerTrader</compClass>
+				<basePowerConsumption>-1</basePowerConsumption>
+			</li>
+		</comps>
+		<shaderType>Transparent</shaderType>
+		<placeWorkers>
+		<li>PlaceWorker_NotUnderRoof</li>
+		</placeWorkers>
+		<building>
+				<ignoreNeedsPower>true</ignoreNeedsPower>
+		</building>
+		<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+		<designationCategory>Power</designationCategory>
+	<!-- <researchPrerequisite>Medieval_Windmills</researchPrerequisite> -->
+	</ThingDef>
+
+</ThingDefs>

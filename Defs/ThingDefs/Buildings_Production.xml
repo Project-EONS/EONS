@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ThingDefs>
+
+ <ThingDef Name="BuildingBase" Abstract="True">
+    <category>Building</category>
+    <soundImpactDefault>BulletImpactMetal</soundImpactDefault>
+    <selectable>true</selectable>
+    <drawerType>MapMeshAndRealTime</drawerType>
+    <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+    <repairEffect>Repair</repairEffect>
+    <leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
+    <filthLeaving>BuildingRubble</filthLeaving>
+  </ThingDef>
+  
+  <!-- ANCIENT RESEARCH TABLE -->
+  
+    <ThingDef ParentName="BuildingBase">
+    <defName>Ancient_ResearchBench</defName>
+    <eType>Building_ResearchBench</eType>
+    <label>ancient research bench</label>
+    <thingClass>Building_ResearchBench</thingClass>
+    <graphicPath>Production/ResearchTable_Ancient</graphicPath>
+    <graphicClass>Graphic_Single</graphicClass>
+    <altitudeLayer>Waist</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <pathCost>70</pathCost>
+    <castEdgeShadows>false</castEdgeShadows>
+    <statBases>
+      <MaxHealth>125</MaxHealth>
+      <WorkToMake>1400</WorkToMake>
+      <Flammability>1.0</Flammability>
+    </statBases>
+    <description>Researchers work here to discover new things.</description>
+    <size>(5,2)</size>
+    <stuffCategories>
+      <li>Woody</li>
+      <li>Stony</li>
+    </stuffCategories>
+    <costStuffCount>90</costStuffCount>
+    <costList>
+      <WoodLog>60</WoodLog>
+    </costList>
+	<constructEffect>ConstructWood</constructEffect>
+    <fillPercent>0.5</fillPercent>
+    <interactionSquareOffset>(0,0,2)</interactionSquareOffset>
+    <hasInteractionCell>true</hasInteractionCell>
+    <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+    <designationCategory>Production</designationCategory>
+    <staticSunShadowHeight>0.20</staticSunShadowHeight>
+    <itemSurface>true</itemSurface>
+  </ThingDef>
+  
+	<!-- ANCIENT TAILORS BENCH -->
+	
+	  <ThingDef ParentName="BuildingBase">
+    <DefName>AncientTableTailor</DefName>
+    <EType>BuildingComplex</EType>
+    <label>ancient tailor's workbench</label>
+    <ThingClass>Building_WorkTable</ThingClass>
+    <Description>A workbench equipped for cloth refinement and clothing production.</Description>
+    <graphicPath>Things/Building/Production/TailorAncient</graphicPath>
+    <graphicClass>Graphic_Single</graphicClass>
+    <CostList>
+      <WoodLog>50</WoodLog>
+    </CostList>
+    <constructEffect>ConstructWood</constructEffect>
+    <AltitudeLayer>Waist</AltitudeLayer>
+    <fillPercent>0.5</fillPercent>
+    <UseStandardHealth>True</UseStandardHealth>
+    <statBases>
+      <WorkToMake>1250</WorkToMake>
+      <MaxHealth>90</MaxHealth>
+      <Flammability>1.0</Flammability>
+    </statBases>
+    <Size>(3,1)</Size>
+    <graphicOverdraw>False</graphicOverdraw>
+    <DesignationCategory>Production</DesignationCategory>
+    <Passability>PassThroughOnly</Passability>
+    <pathCost>70</pathCost>
+    <hasInteractionCell>True</hasInteractionCell>
+    <interactionSquareOffset>(0,0,-1)</interactionSquareOffset>
+    <itemSurface>True</itemSurface>
+    <inspectorTabs>
+      <li>ITab_Bills</li>
+    </inspectorTabs>
+    <building>
+      <spawnedConceptLearnOpportunity>BillsTab</spawnedConceptLearnOpportunity>
+    </building>
+	<researchPrerequsites>Research_Tailoring</researchPrerequsites>
+  </ThingDef>
+
+<!-- Removes the Vanilla counterparts from the game -->
+  
+  <ThingDef ParentName="BuildingBase">
+    <defName>ResearchBench</defName>
+    <eType>Building_ResearchBench</eType>
+    <label>research bench</label>
+    <thingClass>Building_ResearchBench</thingClass>
+    <graphicPath>Things/Building/Production/ResearchBench</graphicPath>
+    <graphicClass>Graphic_Single</graphicClass>
+    <altitudeLayer>Waist</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <pathCost>70</pathCost>
+    <castEdgeShadows>true</castEdgeShadows>
+    <statBases>
+      <MaxHealth>250</MaxHealth>
+      <WorkToMake>2800</WorkToMake>
+      <Flammability>1.0</Flammability>
+    </statBases>
+    <description>Researchers work here to discover new things.</description>
+    <size>(2,5)</size>
+    <stuffCategories>
+      <li>Metallic</li>
+      <li>Woody</li>
+      <li>Stony</li>
+    </stuffCategories>
+    <costStuffCount>90</costStuffCount>
+    <costList>
+      <Steel>60</Steel>
+    </costList>
+    <fillPercent>0.5</fillPercent>
+    <interactionSquareOffset>(2,0,0)</interactionSquareOffset>
+    <hasInteractionCell>true</hasInteractionCell>
+    <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+    <staticSunShadowHeight>0.20</staticSunShadowHeight>
+    <itemSurface>true</itemSurface>
+    <designationHotKey>N</designationHotKey>
+  </ThingDef>
+
+    <ThingDef ParentName="BuildingBase">
+    <DefName>TableTailor</DefName>
+    <EType>BuildingComplex</EType>
+    <label>tailor's workbench</label>
+    <ThingClass>Building_WorkTable</ThingClass>
+    <Description>A workbench equipped for cloth refinement and clothing production.</Description>
+    <graphicPath>Things/Building/Production/TableTailor</graphicPath>
+    <graphicClass>Graphic_Single</graphicClass>
+    <CostList>
+      <WoodLog>60</WoodLog>
+      <Steel>50</Steel>
+    </CostList>
+    <constructEffect>ConstructWood</constructEffect>
+    <AltitudeLayer>Waist</AltitudeLayer>
+    <fillPercent>0.5</fillPercent>
+    <UseStandardHealth>True</UseStandardHealth>
+    <statBases>
+      <WorkToMake>2500</WorkToMake>
+      <MaxHealth>180</MaxHealth>
+      <Flammability>1.0</Flammability>
+    </statBases>
+    <Size>(3,1)</Size>
+    <graphicOverdraw>False</graphicOverdraw>
+    <Passability>PassThroughOnly</Passability>
+    <pathCost>70</pathCost>
+    <hasInteractionCell>True</hasInteractionCell>
+    <interactionSquareOffset>(0,0,-1)</interactionSquareOffset>
+    <itemSurface>True</itemSurface>
+    <inspectorTabs>
+      <li>ITab_Bills</li>
+    </inspectorTabs>
+    <building>
+      <spawnedConceptLearnOpportunity>BillsTab</spawnedConceptLearnOpportunity>
+    </building>
+    <comps>
+      <li>
+        <compClass>CompPowerTrader</compClass>
+        <startElectricalFires>true</startElectricalFires>
+        <basePowerConsumption>120</basePowerConsumption>
+        <soundPowerOn>PowerOnSmall</soundPowerOn>
+        <soundPowerOff>PowerOffSmall</soundPowerOff>
+      </li>
+    </comps>
+    <designationHotKey>P</designationHotKey>
+  </ThingDef>
+  
+</ThingDefs>

@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<WorkGivers>
+
+
+  
+
+
+  <!-- ==================================== Crafting ====================================== -->
+
+
+
+
+  <WorkGiverDef>
+    <defName>DoBillsWoodWorkerTable</defName>
+    <giverClass>WorkGiver_DoBill</giverClass>
+    <workType>Crafting</workType>
+    <priorityInType>101</priorityInType>
+    <singleBillGiverDef>WoodWeaponTable</singleBillGiverDef>
+    <verb>Crafting</verb>
+    <gerund>Do things at</gerund>
+    <requiredActivities>
+      <li>Manipulation</li>
+    </requiredActivities>
+  </WorkGiverDef>
+  
+<WorkGiverDef>
+    <defName>DoBillsStoneWorkerTable</defName>
+    <giverClass>WorkGiver_DoBill</giverClass>
+    <workType>Crafting</workType>
+    <priorityInType>102</priorityInType>
+    <singleBillGiverDef>StoneWeaponTable</singleBillGiverDef>
+    <verb>Crafting</verb>
+    <gerund>Do things at</gerund>
+    <requiredActivities>
+      <li>Manipulation</li>
+    </requiredActivities>
+  </WorkGiverDef>
+  
+<WorkGiverDef>
+    <defName>DoBillsBoneWorkerTable</defName>
+    <giverClass>WorkGiver_DoBill</giverClass>
+    <workType>Crafting</workType>
+    <priorityInType>103</priorityInType>
+    <singleBillGiverDef>BoneWeaponTable</singleBillGiverDef>
+    <verb>Crafting</verb>
+    <gerund>Do things at</gerund>
+    <requiredActivities>
+      <li>Manipulation</li>
+    </requiredActivities>
+  </WorkGiverDef>
+
+  
+
+
+
+
+
+
+
+
+</WorkGivers>

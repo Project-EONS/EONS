@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <DesignationCategoryDef>
+    <DefName>StoneAge</DefName>
+    <label>Stone age</label>
+    <description>Things for stone age.</description>
+    <order>24</order>
+    <specialDesignatorClasses>
+      <li>Designator_Cancel</li>
+      <li>Designator_Deconstruct</li>
+    </specialDesignatorClasses>
+  </DesignationCategoryDef>
+  
+  
+
+  <DesignationCategoryDef>
+    <DefName>BronzeAge</DefName>
+    <label>Bronze age</label>
+    <description>Things for bronze age.</description>
+    <order>23</order>
+    <specialDesignatorClasses>
+      <li>Designator_Cancel</li>
+      <li>Designator_Deconstruct</li>
+    </specialDesignatorClasses>
+  </DesignationCategoryDef>
+  
+  <DesignationCategoryDef>
+	<DefName>IronAge</DefName>
+	<label>Iron age</label>
+	<description>Things for iron age.</description>
+	<order>25</order>
+	<specialDesignatorClasses>
+		<li>Designator_Cancel</li>
+		<li>Designator_Deconstruct</li>
+	</specialDesignatorClasses>
+  </DesignationCategoryDef>
+  
+</Defs>
