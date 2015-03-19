@@ -1,0 +1,771 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ThingDefs>
+
+
+  <ThingDef Name="BaseGun" Abstract="True">
+    <category>Item</category>
+    <eType>Equipment</eType>
+    <thingClass>Equipment</thingClass>
+    <equipmentType>Primary</equipmentType>
+    <pathCost>10</pathCost>
+    <useStandardHealth>True</useStandardHealth>
+    <selectable>True</selectable>
+    <onGroundRandomRotateAngle>35</onGroundRandomRotateAngle>
+    <drawGUIOverlay>true</drawGUIOverlay>
+    <statBases>
+      <MaxHealth>100</MaxHealth>
+      <Flammability>1.0</Flammability>
+      <DeteriorationRate>1</DeteriorationRate>
+      <SellPriceFactor>0.5</SellPriceFactor>
+    </statBases>
+    <techLevel>Spacer</techLevel>
+    <altitudeLayer>Item</altitudeLayer>
+    <alwaysHaulable>True</alwaysHaulable>
+    <tickerType>Never</tickerType>
+    <inspectorTabs>
+      <li>ITab_Art</li>
+    </inspectorTabs>
+    <comps>
+      <li>
+        <compClass>CompForbiddable</compClass>
+      </li>
+      <li>
+        <compClass>CompQuality</compClass>
+      </li>
+      <li>
+        <compClass>CompArt</compClass>
+        <nameMaker>NamerGun</nameMaker>
+        <descriptionMaker>ArtWeaponGun</descriptionMaker>
+        <minQualityForArtistic>Excellent</minQualityForArtistic>
+      </li>
+    </comps>
+    <smeltProducts>
+      <Steel>7</Steel>
+      <Plasteel>3</Plasteel>
+    </smeltProducts>
+  </ThingDef>
+
+
+  <ThingDef Name="BaseHumanGun" ParentName="BaseGun" Abstract="True">
+    <weaponTags>
+      <li>YPGun</li>
+      <li>Gun</li>
+      <li>AdvancedGun</li>
+      <li>GunRE</li>
+    </weaponTags>
+    <tradeTags>
+      <li>CerRE</li>
+    </tradeTags>
+  </ThingDef>
+
+
+  <ThingDef Name="BaseBullet" Abstract="True">
+    <category>Projectile</category>
+    <tickerType>Normal</tickerType>
+    <altitudeLayer>Projectile</altitudeLayer>
+    <thingClass>Bullet</thingClass>
+    <label>bullet</label>
+    <useStandardHealth>False</useStandardHealth>
+    <neverMultiSelect>True</neverMultiSelect>
+    <shaderType>Transparent</shaderType>
+  </ThingDef>
+  
+ <ThingDef Name="BaseMeleeWeapon" Abstract="True">
+    <category>Item</category>
+    <eType>Equipment</eType>
+    <thingClass>Equipment</thingClass>
+    <equipmentType>Primary</equipmentType>
+    <pathCost>200</pathCost>
+    <useStandardHealth>True</useStandardHealth>
+    <selectable>True</selectable>
+    <onGroundRandomRotateAngle>40</onGroundRandomRotateAngle>
+    <drawGUIOverlay>true</drawGUIOverlay>
+    <statBases>
+      <MaxHealth>100</MaxHealth>
+      <Flammability>1.0</Flammability>
+      <DeteriorationRate>0.5</DeteriorationRate>
+      <SellPriceFactor>0.5</SellPriceFactor>
+    </statBases>
+    <altitudeLayer>Item</altitudeLayer>
+    <alwaysHaulable>True</alwaysHaulable>
+    <tickerType>Never</tickerType>
+    <techLevel>Midworld</techLevel>
+    <weaponTags>
+      <li>Melee</li>
+    </weaponTags>
+    <thingCategories>
+      <li>WeaponsMelee</li>
+    </thingCategories>
+    <comps>
+      <li>
+        <compClass>CompForbiddable</compClass>
+      </li>
+      <li>
+        <compClass>CompQuality</compClass>
+      </li>
+      <li>
+        <compClass>CompArt</compClass>
+        <nameMaker>NamerMeleeWeapon</nameMaker>
+        <descriptionMaker>ArtWeaponMelee</descriptionMaker>
+        <minQualityForArtistic>Excellent</minQualityForArtistic>
+      </li>
+    </comps>
+    <recipeMaker>
+      <workSpeedStat>SmithingSpeed</workSpeedStat>
+      <workSkill>Crafting</workSkill>
+      <effectWorking>Smith</effectWorking>
+      <soundWorking>Recipe_Smith</soundWorking>
+      <recipeUsers>
+        <li>TableSmithing</li>
+      </recipeUsers>
+      <unfinishedThingDef>UnfinishedWeapon</unfinishedThingDef>
+    </recipeMaker>
+    <inspectorTabs>
+      <li>ITab_Art</li>
+    </inspectorTabs>
+  </ThingDef>
+
+
+
+  <ThingDef Name="BaseMeleeWeapon_Sharp" ParentName="BaseMeleeWeapon" Abstract="True">
+    <recipeMaker>
+    <defaultIngredientFilter>
+      <categories>
+        <li>Root</li>
+      </categories>
+      <exceptedThingDefs>
+        <li>Silver</li>
+        <li>Gold</li>
+        <li>WoodLog</li>
+      </exceptedThingDefs>
+    </defaultIngredientFilter>
+    </recipeMaker>
+  </ThingDef>
+
+  <ThingDef Name="BaseMeleeWeapon_Blunt" ParentName="BaseMeleeWeapon" Abstract="True">
+    <recipeMaker>
+      <defaultIngredientFilter>
+        <categories>
+          <li>Root</li>
+        </categories>
+        <exceptedThingDefs>
+          <li>Silver</li>
+          <li>Gold</li>
+        </exceptedThingDefs>
+      </defaultIngredientFilter>
+    </recipeMaker>
+  </ThingDef>
+
+  <!-- ============================================================== -->
+  <!-- ================= ROCK "BULLET" ================= -->
+  
+	<ThingDef ParentName="BaseBullet">
+		<defName>Ancient_Bullet_Rock</defName>
+		<label>Rock</label>
+		<graphicPath>Things/Projectile/Rock</graphicPath>
+		<graphicClass>Graphic_Single</graphicClass>
+		<projectile>
+			<damageDef>Blunt</damageDef>
+			<DamageAmountBase>11</DamageAmountBase>
+			<Speed>35</Speed>
+		</projectile>
+	</ThingDef>
+	
+	<!-- =================== TOMAHAWK "BULLET" ================ -->
+	
+	<ThingDef ParentName="BaseBullet">
+		<defName>Ancient_Bullet_Tomahawk</defName>
+		<label>Tomahawk</label>
+		<graphicPath>Things/Projectile/Tomahawk</graphicPath>
+		<graphicClass>Graphic_Single</graphicClass>
+		<projectile>
+			<flyOverhead>false</flyOverhead>
+			<damageDef>Cut</damageDef>
+			<DamageAmountBase>18</DamageAmountBase>
+			<Speed>17</Speed>
+    </projectile>
+	</ThingDef>
+	
+	<!-- =============== ARROWS =============== -->
+	
+	<ThingDef ParentName="BaseBullet">
+		<defName>Ancient_Bullet_Arrow</defName>
+		<label>Arrow</label>
+		<graphicPath>Things/Projectile/Wooden_Arrow</graphicPath>
+		<graphicClass>Graphic_Single</graphicClass>
+		<projectile>
+			<damageDef>Cut</damageDef>
+			<DamageAmountBase>9</DamageAmountBase>
+			<Speed>20</Speed>
+		</projectile>
+	</ThingDef>
+	
+	<ThingDef ParentName="BaseBullet">
+		<defName>Ancient_Bullet_StoneArrow</defName>
+		<label>Stone Arrow</label>
+		<graphicPath>Things/Projectile/Stone_Arrow</graphicPath>
+		<graphicClass>Graphic_Single</graphicClass>
+		<projectile>
+			<damageDef>Cut</damageDef>
+			<DamageAmountBase>11</DamageAmountBase>
+			<Speed>23</Speed>
+		</projectile>
+	</ThingDef>
+	
+	<ThingDef ParentName="BaseBullet">
+		<defName>Ancient_Bullet_BoneArrow</defName>
+		<label>Bone Arrow</label>
+		<graphicPath>Things/Projectile/Bone_Arrow</graphicPath>
+		<graphicClass>Graphic_Single</graphicClass>
+		<projectile>
+			<damageDef>Cut</damageDef>
+			<DamageAmountBase>14</DamageAmountBase>
+			<Speed>25</Speed>
+		</projectile>
+	</ThingDef>
+	
+	<ThingDef ParentName="BaseBullet">
+		<defName>Ancient_Bullet_FireArrow</defName>
+		<label>Fire Arrow</label>
+		<graphicPath>Things/Projectile/Fire_Arrow</graphicPath>
+		<graphicClass>Graphic_Single</graphicClass>
+		<projectile>
+			<damageDef>Flame</damageDef>
+			<DamageAmountBase>11</DamageAmountBase>
+			<Speed>20</Speed>
+		</projectile>
+	</ThingDef>
+	
+	<!-- =============== SLING ================== -->
+  
+	<ThingDef ParentName="BaseHumanGun">
+		<defName>Ancient_Gun_Sling</defName>
+		<label>Sling</label>
+		<description>A deadly-for-it's-time, ancient weapon that relies on a single (or multiple pieces strung together) piece of leather to throw, or "sling" rocks through the air at deadly speeds towards an opponent.</description>
+		<graphicPath>Things/Ancient/Sling</graphicPath>
+		<graphicClass>Graphic_Single</graphicClass>
+		<statBases>
+			<MarketValue></MarketValue>
+			<MaxHealth>50</MaxHealth>
+			<Flammability>1.0</Flammability>
+			<DeteriorationRate>1</DeteriorationRate>
+			<SellPriceFactor>0.5</SellPriceFactor>
+			<WorkToMake>500</WorkToMake>
+				<AccuracyTouch>0.75</AccuracyTouch>
+				<AccuracyShort>0.67</AccuracyShort>
+				<AccuracyMedium>0.60</AccuracyMedium>
+				<AccuracyLong>0.47</AccuracyLong>
+				<RangedWeapon_Cooldown>0.4</RangedWeapon_Cooldown>
+		</statBases>
+		<verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<projectileDef>Ancient_Bullet_Rock</projectileDef>
+				<burstShotCount>1</burstShotCount>
+				<ticksBetweenBurstShots>0</ticksBetweenBurstShots>
+				<warmupTicks>75</warmupTicks>
+				<range>25</range>
+			</li>
+		</verbs>
+		<stuffCategories>
+			<li>Leathery</li>
+		</stuffCategories>
+	</ThingDef>
+	
+	<!-- ============= CABLE BACKED BOW ============== -->
+	
+	<ThingDef ParentName="BaseHumanGun">
+		<defName>Ancient_Gun_CBB</defName>
+		<label>Cable-Backed Bow</label>
+		<description> A bow that is backed by cables made from animal hides, it is reinforced and is considered to be a deadly weapon of it's time.</description>
+		<graphicPath>Things/Ancient/Cable_Backed_Bow</graphicPath>
+		    <graphicClass>Graphic_Single</graphicClass>
+		<statBases>
+		<MarketValue>285</MarketValue>
+		<MaxHealth>100</MaxHealth>
+		<Flammability>1.5</Flammability>
+		<DeteriorationRate>0.75</DeteriorationRate>
+		<SellPriceFactor>0.5</SellPriceFactor>
+		<WorkToMake>450</WorkToMake>
+			<AccuracyTouch>0.75</AccuracyTouch>
+			<AccuracyShort>0.65</AccuracyShort>
+			<AccuracyMedium>0.65</AccuracyMedium>
+			<AccuracyLong>0.55</AccuracyLong>
+			<RangedWeapon_Cooldown>1</RangedWeapon_Cooldown>
+		</statBases>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <projectileDef>Ancient_Bullet_StoneArrow</projectileDef>
+        <warmupTicks>90</warmupTicks>
+        <range>40</range>
+        <soundCast>BowSmall</soundCast>
+      </li>
+	  <li>
+		<verbClass>Verb_Shoot</verbClass>
+		<hasStandardCommand>true</hasStandardCommand>
+		<projectileDef>Ancient_Bullet_FireArrow</projectileDef>
+		<warmupTicks>95</warmupTicks>
+		<range>35</range>
+		<soundCast>BowSmall</soundCast>
+	  </li>
+    </verbs>
+	</ThingDef>	
+
+	<!-- =========== TOMAHAWK ============== -->
+	
+	<ThingDef ParentName="BaseHumanGun">
+		<defName>Ancient_Gun_Tomahawk</defName>
+		<label>Tomahawk</label>
+		<description>An ancient tomahawk, deadly and somewhat precise - it is used as a throwing weapon, but can also be used as a melee weapon in some situations.</description>
+		<graphicPath>Things/Ancient/Tomahawk</graphicPath>
+		    <graphicClass>Graphic_Single</graphicClass>
+		<statBases>
+		<MarketValue>270</MarketValue>
+		<MaxHealth>100</MaxHealth>
+		<Flammability>0.8</Flammability>
+		<DeteriorationRate>0.9</DeteriorationRate>
+		<SellPriceFactor>0.5</SellPriceFactor>
+		<WorkToMake>485</WorkToMake>
+			<AccuracyTouch>0.80</AccuracyTouch>
+			<AccuracyShort>0.63</AccuracyShort>
+			<AccuracyMedium>0.40</AccuracyMedium>
+			<AccuracyLong>0.23</AccuracyLong>
+			<RangedWeapon_Cooldown>0.7</RangedWeapon_Cooldown>
+		</statBases>
+		<verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<projectileDef>Ancient_Bullet_Tomahawk</projectileDef>
+				<burstShotCount>1</burstShotCount>
+				<ticksBetweenBurstShots>0</ticksBetweenBurstShots>
+				<warmupTicks>60</warmupTicks>
+				<range>20</range>
+			</li>
+			<li>
+			<verbClass>Verb_MeleeAttack</verbClass>
+			<hasStandardCommand>true</hasStandardCommand>
+			<meleeDamageDef>Cut</meleeDamageDef>
+			</li>
+		</verbs>
+	</ThingDef>
+	
+	<!-- ============ CLUBS ========== -->
+
+	<ThingDef ParentName="BaseMeleeWeapon_Blunt">
+		<defName>Ancient_Melee_Club_Wood</defName>
+		<label>Club</label>
+		<description>A weapon that is very deadly even at this point in time, it is used in a bludgeoning manner with extreme force to break bones, and crack skulls. Made out of wood.</description>
+		<graphicPath>Things/Ancient/Club</graphicPath>
+		    <graphicClass>Graphic_Single</graphicClass>
+    <costStuffCount>67</costStuffCount>
+    <statBases>
+      <WorkToMake>900</WorkToMake>
+			<MarketValue>190</MarketValue>
+			<MaxHealth>100</MaxHealth>
+			<Flammability>1.0</Flammability>
+			<DeteriorationRate>1</DeteriorationRate>
+			<SellPriceFactor>0.5</SellPriceFactor>
+			<WorkToMake>575</WorkToMake>
+			<MeleeWeapon_DamageAmount>14</MeleeWeapon_DamageAmount>
+			<MeleeWeapon_Cooldown>2.5</MeleeWeapon_Cooldown>
+		</statBases>
+		<equippedAngleOffset>-45</equippedAngleOffset>
+		<stuffCategories>
+			<li>Woody</li>
+		</stuffCategories>
+		<verbs>
+			<li>
+				<verbClass>Verb_MeleeAttack</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<meleeDamageDef>Blunt</meleeDamageDef>
+			</li>
+		</verbs>
+  </ThingDef>
+  
+  	<ThingDef ParentName="BaseMeleeWeapon_Blunt">
+		<defName>Ancient_Melee_Club_Stone</defName>
+		<label>Club</label>
+		<description>A weapon that is very deadly even at this point in time, it is used in a bludgeoning manner with extreme force to break bones, and crack skulls. Made from a type of stone.</description>
+		<graphicPath>Things/Ancient/Club</graphicPath>
+		    <graphicClass>Graphic_Single</graphicClass>
+    <costStuffCount>67</costStuffCount>
+    <statBases>
+      <WorkToMake>900</WorkToMake>
+			<MarketValue>190</MarketValue>
+			<MaxHealth>100</MaxHealth>
+			<Flammability>1.0</Flammability>
+			<DeteriorationRate>1</DeteriorationRate>
+			<SellPriceFactor>0.5</SellPriceFactor>
+			<WorkToMake>575</WorkToMake>
+			<MeleeWeapon_DamageAmount>14</MeleeWeapon_DamageAmount>
+			<MeleeWeapon_Cooldown>2.5</MeleeWeapon_Cooldown>
+		</statBases>
+		<equippedAngleOffset>-45</equippedAngleOffset>
+		<stuffCategories>
+			<li>Stony</li>
+		</stuffCategories>
+		<verbs>
+			<li>
+				<verbClass>Verb_MeleeAttack</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<meleeDamageDef>Blunt</meleeDamageDef>
+			</li>
+		</verbs>
+  </ThingDef>
+  
+    	<ThingDef ParentName="BaseMeleeWeapon_Blunt">
+		<defName>Ancient_Melee_Club_Bone</defName>
+		<label>Club</label>
+		<description>A weapon that is very deadly even at this point in time, it is used in a bludgeoning manner with extreme force to break bones, and crack skulls. Made from a large animal bone.</description>
+		<graphicPath>Things/Ancient/Bone_Club</graphicPath>
+		    <graphicClass>Graphic_Single</graphicClass>
+    <costStuffCount>80</costStuffCount>
+    <statBases>
+      <WorkToMake>1050</WorkToMake>
+			<MarketValue>210</MarketValue>
+			<MaxHealth>100</MaxHealth>
+			<Flammability>0.5</Flammability>
+			<DeteriorationRate>0.5</DeteriorationRate>
+			<SellPriceFactor>0.5</SellPriceFactor>
+			<WorkToMake>525</WorkToMake>
+			<MeleeWeapon_DamageAmount>17</MeleeWeapon_DamageAmount>
+			<MeleeWeapon_Cooldown>3</MeleeWeapon_Cooldown>
+		</statBases>
+		<equippedAngleOffset>-45</equippedAngleOffset>
+		<stuffCategories>
+			<li>Bony</li>
+		</stuffCategories>
+		<verbs>
+			<li>
+				<verbClass>Verb_MeleeAttack</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<meleeDamageDef>Blunt</meleeDamageDef>
+			</li>
+		</verbs>
+  </ThingDef>
+
+  <!-- ============== SPEARS =============== -->
+  
+	<ThingDef ParentName="BaseMeleeWeapon_Sharp">
+		<defName>Ancient_Melee_Spear_Wood</defName>
+		<label>Wooden Spear</label>
+		<description>A weapon that is used throughout history, and even in future generations (XenoSpear, LightSpear), it is a dangerous tool even at this stage but is fragile at this point in time.</description>
+		<graphicPath>Things/Ancient/Wood_Spear</graphicPath>
+		    <graphicClass>Graphic_Single</graphicClass>
+    <costStuffCount>20</costStuffCount>
+    <statBases>
+      <WorkToMake>60</WorkToMake>
+			<MarketValue>125</MarketValue>
+			<MaxHealth>65</MaxHealth>
+			<Flammability>1.3</Flammability>
+			<DeteriorationRate>1</DeteriorationRate>
+			<SellPriceFactor>0.5</SellPriceFactor>
+			<WorkToMake>400</WorkToMake>
+			<MeleeWeapon_DamageAmount>11</MeleeWeapon_DamageAmount>
+			<MeleeWeapon_Cooldown>1.4</MeleeWeapon_Cooldown>
+		</statBases>
+		<equippedAngleOffset>-45</equippedAngleOffset>
+		<stuffCategories>
+			<li>Woody</li>
+		</stuffCategories>
+		<verbs>
+			<li>
+				<verbClass>Verb_MeleeAttack</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<meleeDamageDef>Cut</meleeDamageDef>
+			</li>
+		</verbs>
+  </ThingDef>
+  
+  	<ThingDef ParentName="BaseMeleeWeapon_Sharp">
+		<defName>Ancient_Melee_Spear_Stone</defName>
+		<label>Stone Spear</label>
+		<description>A weapon that is used throughout history, and even in future generations (XenoSpear, LightSpear), it is a dangerous tool even at this stage but is fragile at this point in time.</description>
+		<graphicPath>Things/Ancient/Spear</graphicPath>
+		    <graphicClass>Graphic_Single</graphicClass>
+    <costStuffCount>35</costStuffCount>
+    <statBases>
+      <WorkToMake>70</WorkToMake>
+			<MarketValue>155</MarketValue>
+			<MaxHealth>85</MaxHealth>
+			<Flammability>0.7</Flammability>
+			<DeteriorationRate>0.7</DeteriorationRate>
+			<SellPriceFactor>0.5</SellPriceFactor>
+			<WorkToMake>500</WorkToMake>
+			<MeleeWeapon_DamageAmount>14</MeleeWeapon_DamageAmount>
+			<MeleeWeapon_Cooldown>1.8</MeleeWeapon_Cooldown>
+		</statBases>
+		<equippedAngleOffset>-45</equippedAngleOffset>
+		<stuffCategories>
+			<li>Stony</li>
+		</stuffCategories>
+		<verbs>
+			<li>
+				<verbClass>Verb_MeleeAttack</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<meleeDamageDef>Cut</meleeDamageDef>
+			</li>
+		</verbs>
+  </ThingDef>
+  
+    	<ThingDef ParentName="BaseMeleeWeapon_Sharp">
+		<defName>Ancient_Melee_Spear_Bone</defName>
+		<label>Bone Spear</label>
+		<description>A weapon that is used throughout history, and even in future generations (XenoSpear, LightSpear), it is a dangerous tool even at this stage but is fragile at this point in time.</description>
+		<graphicPath>Things/Ancient/Bone_Spear</graphicPath>
+		    <graphicClass>Graphic_Single</graphicClass>
+    <costStuffCount>50</costStuffCount>
+    <statBases>
+      <WorkToMake>90</WorkToMake>
+			<MarketValue>195</MarketValue>
+			<MaxHealth>100</MaxHealth>
+			<Flammability>0.5</Flammability>
+			<DeteriorationRate>0.5</DeteriorationRate>
+			<SellPriceFactor>0.5</SellPriceFactor>
+			<WorkToMake>550</WorkToMake>
+			<MeleeWeapon_DamageAmount>16</MeleeWeapon_DamageAmount>
+			<MeleeWeapon_Cooldown>1.5</MeleeWeapon_Cooldown>
+		</statBases>
+		<equippedAngleOffset>-45</equippedAngleOffset>
+		<stuffCategories>
+			<li>Bony</li>
+		</stuffCategories>
+		<verbs>
+			<li>
+				<verbClass>Verb_MeleeAttack</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<meleeDamageDef>Cut</meleeDamageDef>
+			</li>
+		</verbs>
+  </ThingDef>
+  
+  <!-- ================= WOOD GREAT BOW AND NORMAL BOW =================== -->
+ 
+ 	<ThingDef ParentName="BaseHumanGun">
+		<defName>Ancient_Gun_WoodBow</defName>
+		<label>Wooden Bow</label>
+		<description>An ordinary, tribal, neolithic, caveman bow. Nothing special about it aside from the fact that it is made of wood, which isn't really special...</description>
+		<graphicPath>Things/Ancient/Wood_ShortBow</graphicPath>
+		    <graphicClass>Graphic_Single</graphicClass>
+		<statBases>
+		<MarketValue>125</MarketValue>
+		<MaxHealth>70</MaxHealth>
+		<Flammability>1.5</Flammability>
+		<DeteriorationRate>0.75</DeteriorationRate>
+		<SellPriceFactor>0.5</SellPriceFactor>
+		<WorkToMake>385</WorkToMake>
+			<AccuracyTouch>0.65</AccuracyTouch>
+			<AccuracyShort>0.55</AccuracyShort>
+			<AccuracyMedium>0.55</AccuracyMedium>
+			<AccuracyLong>0.45</AccuracyLong>
+			<RangedWeapon_Cooldown>1</RangedWeapon_Cooldown>
+		</statBases>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <projectileDef>Ancient_Bullet_Arrow</projectileDef>
+        <warmupTicks>70</warmupTicks>
+        <range>17</range>
+        <soundCast>BowSmall</soundCast>
+      </li>
+	</verbs>
+</ThingDef>
+	  
+	   	<ThingDef ParentName="BaseHumanGun">
+		<defName>Ancient_Gun_WoodGreatBow</defName>
+		<label>Wooden Great Bow</label>
+		<description>An above-ordinary, tribal, neolithic, second-stage-caveman great bow. Nothing special about it aside from the fact that it is great, and made of wood, which isn't really special...</description>
+		<graphicPath>Things/Ancient/Wood_GreatBow</graphicPath>
+		    <graphicClass>Graphic_Single</graphicClass>
+		<statBases>
+		<MarketValue>165</MarketValue>
+		<MaxHealth>85</MaxHealth>
+		<Flammability>1.5</Flammability>
+		<DeteriorationRate>0.75</DeteriorationRate>
+		<SellPriceFactor>0.5</SellPriceFactor>
+		<WorkToMake>415</WorkToMake>
+			<AccuracyTouch>0.70</AccuracyTouch>
+			<AccuracyShort>0.60</AccuracyShort>
+			<AccuracyMedium>0.60</AccuracyMedium>
+			<AccuracyLong>0.50</AccuracyLong>
+			<RangedWeapon_Cooldown>1</RangedWeapon_Cooldown>
+		</statBases>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <projectileDef>Ancient_Bullet_StoneArrow</projectileDef>
+        <warmupTicks>60</warmupTicks>
+        <range>19</range>
+        <soundCast>BowSmall</soundCast>
+      </li>
+	</verbs>
+</ThingDef>
+	  
+	  <!-- ==================== BONE NORMAL AND GREAT BOW ================ -->
+
+	  	   	<ThingDef ParentName="BaseHumanGun">
+		<defName>Ancient_Gun_BoneShortBow</defName>
+		<label>Bone Short Bow</label>
+		<description>An above-ordinary, tribal, neolithic, caveman short bow. It appears to be impressively, a carved bone. </description>
+		<graphicPath>Things/Ancient/Bone_ShortBow</graphicPath>
+		    <graphicClass>Graphic_Single</graphicClass>
+		<statBases>
+		<MarketValue>215</MarketValue>
+		<MaxHealth>95</MaxHealth>
+		<Flammability>0.7</Flammability>
+		<DeteriorationRate>0.5</DeteriorationRate>
+		<SellPriceFactor>0.5</SellPriceFactor>
+		<WorkToMake>495</WorkToMake>
+			<AccuracyTouch>0.73</AccuracyTouch>
+			<AccuracyShort>0.63</AccuracyShort>
+			<AccuracyMedium>0.63</AccuracyMedium>
+			<AccuracyLong>0.53</AccuracyLong>
+			<RangedWeapon_Cooldown>1</RangedWeapon_Cooldown>
+		</statBases>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <projectileDef>Ancient_Bullet_BoneArrow</projectileDef>
+        <warmupTicks>60</warmupTicks>
+        <range>22</range>
+        <soundCast>BowSmall</soundCast>
+      </li>
+	 </verbs>
+</ThingDef>
+	  
+	  	  	   	<ThingDef ParentName="BaseHumanGun">
+		<defName>Ancient_Gun_BoneGreatBow</defName>
+		<label>Bone Great Bow</label>
+		<description>An above-ordinary, tribal, neolithic, second-stage-caveman bow. It is impressively carved out from a bone, and is very great.</description>
+		<graphicPath>Things/Ancient/Bone_GreatBow</graphicPath>
+		    <graphicClass>Graphic_Single</graphicClass>
+		<statBases>
+		<MarketValue>245</MarketValue>
+		<MaxHealth>100</MaxHealth>
+		<Flammability>0.7</Flammability>
+		<DeteriorationRate>0.5</DeteriorationRate>
+		<SellPriceFactor>0.5</SellPriceFactor>
+		<WorkToMake>510</WorkToMake>
+			<AccuracyTouch>0.76</AccuracyTouch>
+			<AccuracyShort>0.66</AccuracyShort>
+			<AccuracyMedium>0.66</AccuracyMedium>
+			<AccuracyLong>0.56</AccuracyLong>
+			<RangedWeapon_Cooldown>1</RangedWeapon_Cooldown>
+		</statBases>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <projectileDef>Ancient_Bullet_BoneArrow</projectileDef>
+        <warmupTicks>60</warmupTicks>
+        <range>25</range>
+        <soundCast>BowSmall</soundCast>
+      </li>
+	</verbs>
+</ThingDef>
+
+	  <!-- ================ KNIVES ================= -->
+	  
+	 	<ThingDef ParentName="BaseMeleeWeapon_Sharp">
+		<defName>Ancient_Melee_Knife_Stone</defName>
+		<label>Stone Knife</label>
+		<description>A sharp, short peice of rock that is used to stab someone.</description>
+		<graphicPath>Things/Ancient/Stone_Knife</graphicPath>
+		    <graphicClass>Graphic_Single</graphicClass>
+    <costStuffCount>25</costStuffCount>
+    <statBases>
+      <WorkToMake>60</WorkToMake>
+			<MarketValue>150</MarketValue>
+			<MaxHealth>75</MaxHealth>
+			<Flammability>0.8</Flammability>
+			<DeteriorationRate>0.8</DeteriorationRate>
+			<SellPriceFactor>0.5</SellPriceFactor>
+			<WorkToMake>365</WorkToMake>
+			<MeleeWeapon_DamageAmount>9</MeleeWeapon_DamageAmount>
+			<MeleeWeapon_Cooldown>0.9</MeleeWeapon_Cooldown>
+		</statBases>
+		<equippedAngleOffset>-45</equippedAngleOffset>
+		<stuffCategories>
+			<li>Stony</li>
+		</stuffCategories>
+		<verbs>
+			<li>
+				<verbClass>Verb_MeleeAttack</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<meleeDamageDef>Cut</meleeDamageDef>
+			</li>
+		</verbs>
+  </ThingDef>
+  
+  	 	<ThingDef ParentName="BaseMeleeWeapon_Sharp">
+		<defName>Ancient_Melee_Knife_Bone</defName>
+		<label>Bone Knife</label>
+		<description>A carved bone knife, sharp and dangerous.</description>
+		<graphicPath>Things/Ancient/Bone_Knife</graphicPath>
+		    <graphicClass>Graphic_Single</graphicClass>
+    <costStuffCount>35</costStuffCount>
+    <statBases>
+      <WorkToMake>60</WorkToMake>
+			<MarketValue>165</MarketValue>
+			<MaxHealth>85</MaxHealth>
+			<Flammability>0.6</Flammability>
+			<DeteriorationRate>0.5</DeteriorationRate>
+			<SellPriceFactor>0.5</SellPriceFactor>
+			<WorkToMake>395</WorkToMake>
+			<MeleeWeapon_DamageAmount>10</MeleeWeapon_DamageAmount>
+			<MeleeWeapon_Cooldown>0.8</MeleeWeapon_Cooldown>
+		</statBases>
+		<equippedAngleOffset>-45</equippedAngleOffset>
+		<stuffCategories>
+			<li>Bony</li>
+		</stuffCategories>
+		<verbs>
+			<li>
+				<verbClass>Verb_MeleeAttack</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<meleeDamageDef>Cut</meleeDamageDef>
+			</li>
+		</verbs>
+  </ThingDef>
+  
+	<!-- ============== STONE AXE =============== -->
+	
+	  	 	<ThingDef ParentName="BaseMeleeWeapon_Sharp">
+		<defName>Ancient_Melee_Axe_Stone</defName>
+		<label>Stone Axe</label>
+		<description>A carved bone knife, sharp and dangerous.</description>
+		<graphicPath>Things/Ancient/Bone_Knife</graphicPath>
+		    <graphicClass>Graphic_Single</graphicClass>
+    <costStuffCount>25</costStuffCount>
+    <statBases>
+      <WorkToMake>75</WorkToMake>
+			<MarketValue>135</MarketValue>
+			<MaxHealth>90</MaxHealth>
+			<Flammability>0.8</Flammability>
+			<DeteriorationRate>0.8</DeteriorationRate>
+			<SellPriceFactor>0.5</SellPriceFactor>
+			<WorkToMake>395</WorkToMake>
+			<MeleeWeapon_DamageAmount>11</MeleeWeapon_DamageAmount>
+			<MeleeWeapon_Cooldown>0.8</MeleeWeapon_Cooldown>
+		</statBases>
+		<equippedAngleOffset>-45</equippedAngleOffset>
+		<stuffCategories>
+			<li>Stony</li>
+		</stuffCategories>
+		<verbs>
+			<li>
+				<verbClass>Verb_MeleeAttack</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<meleeDamageDef>Cut</meleeDamageDef>
+			</li>
+		</verbs>
+  </ThingDef>
+  
+</ThingDefs>

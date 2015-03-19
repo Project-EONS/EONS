@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  
+  <ThingDef Name="BuildingBase" Abstract="True">
+    <category>Building</category>
+    <soundImpactDefault>BulletImpactMetal</soundImpactDefault>
+    <selectable>true</selectable>
+    <drawerType>MapMeshAndRealTime</drawerType>
+    <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+    <repairEffect>Repair</repairEffect>
+    <leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
+    <filthLeaving>BuildingRubble</filthLeaving>
+  </ThingDef>
+
+
+
+
+  <ThingDef ParentName="BuildingBase">
+    <defName>Campfire_Ancient</defName>
+    <eType>BuildingComplex</eType>
+    <label>campfire</label>
+    <description>A temporary heat source which burns for a few days. As with all heat sources, it must be placed indoors so it has a closed space to heat.</description>
+    <thingClass>Building_Campfire</thingClass>
+    <category>Building</category>
+    <graphicPath>Things/Building/Misc/Campfire</graphicPath>
+    <graphicClass>Graphic_Single</graphicClass>
+    <altitudeLayer>FloorEmplacement</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <pathCost>50</pathCost>
+    <constructEffect>ConstructDirt</constructEffect>
+    <tickerType>Normal</tickerType>
+    <drawerType>RealtimeOnly</drawerType>
+    <statBases>
+      <MaxHealth>80</MaxHealth>
+      <WorkToMake>200</WorkToMake>
+      <Flammability>1.0</Flammability>
+    </statBases>
+    <selectable>true</selectable>
+    <size>(1,1)</size>
+    <costList>
+      <WoodLog>35</WoodLog>
+    </costList>
+    <soundImpactDefault>BulletImpactGround</soundImpactDefault>
+    <leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+    <placeWorkers>
+      <li>PlaceWorker_Heater</li>
+    </placeWorkers>
+    <drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
+    <comps>
+      <li>
+        <compClass>CompGlower</compClass>
+        <glowRadius>10</glowRadius>
+        <glowColor>(252,187,113,0)</glowColor>
+      </li>
+      <li>
+        <compClass>CompHeatPusher</compClass>
+        <heatPerSecond>22</heatPerSecond>
+        <heatPushMaxTemperature>28</heatPushMaxTemperature>
+      </li>
+      <li>
+        <compClass>CompGatherSpot</compClass>
+      </li>
+      <li>
+        <compClass>CompLifespan</compClass>
+        <lifespanTicks>40000</lifespanTicks>
+      </li>
+    </comps>
+    <designationCategory>Temperature</designationCategory>
+    <rotatable>false</rotatable>
+    <researchPrerequisites>Research_Fire</researchPrerequisites>
+  </ThingDef>
+  
+    <ThingDef ParentName="BuildingBase">
+    <defName>Campfire</defName>
+    <eType>BuildingComplex</eType>
+    <label>campfire</label>
+    <description>A temporary heat source which burns for a few days. As with all heat sources, it must be placed indoors so it has a closed space to heat.</description>
+    <thingClass>Building_Campfire</thingClass>
+    <category>Building</category>
+    <graphicPath>Things/Building/Misc/Campfire</graphicPath>
+    <graphicClass>Graphic_Single</graphicClass>
+    <altitudeLayer>FloorEmplacement</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <pathCost>50</pathCost>
+    <constructEffect>ConstructDirt</constructEffect>
+    <tickerType>Normal</tickerType>
+    <drawerType>RealtimeOnly</drawerType>
+    <statBases>
+      <MaxHealth>80</MaxHealth>
+      <WorkToMake>200</WorkToMake>
+      <Flammability>1.0</Flammability>
+    </statBases>
+    <selectable>true</selectable>
+    <size>(1,1)</size>
+    <costList>
+      <WoodLog>35</WoodLog>
+    </costList>
+    <soundImpactDefault>BulletImpactGround</soundImpactDefault>
+    <leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+    <placeWorkers>
+      <li>PlaceWorker_Heater</li>
+    </placeWorkers>
+    <drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
+    <comps>
+      <li>
+        <compClass>CompGlower</compClass>
+        <glowRadius>10</glowRadius>
+        <glowColor>(252,187,113,0)</glowColor>
+      </li>
+      <li>
+        <compClass>CompHeatPusher</compClass>
+        <heatPerSecond>22</heatPerSecond>
+        <heatPushMaxTemperature>28</heatPushMaxTemperature>
+      </li>
+      <li>
+        <compClass>CompGatherSpot</compClass>
+      </li>
+      <li>
+        <compClass>CompLifespan</compClass>
+        <lifespanTicks>40000</lifespanTicks>
+      </li>
+    </comps>
+    <rotatable>false</rotatable>
+  </ThingDef>
+  
+  </Defs>

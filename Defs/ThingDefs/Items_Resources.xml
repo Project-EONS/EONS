@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Resources>
+
+  <ThingDef Name="ResourceBase" Abstract="True">
+    <thingClass>ThingWithComponents</thingClass>
+    <label>Unspecified resource</label>
+    <category>Item</category>
+    <eType>Item</eType>
+    <resourceReadoutPriority>Middle</resourceReadoutPriority>
+    <useStandardHealth>true</useStandardHealth>
+    <selectable>true</selectable>
+    <altitudeLayer>Item</altitudeLayer>
+    <stackLimit>75</stackLimit>
+    <comps>
+      <li>
+        <compClass>CompForbiddable</compClass>
+      </li>
+    </comps>
+    <alwaysHaulable>true</alwaysHaulable>
+    <drawGUIOverlay>true</drawGUIOverlay>
+    <rotatable>false</rotatable>
+    <pathCost>15</pathCost>
+  </ThingDef>
+  <!-- Natural Stuff -->
+  
+    <ThingDef ParentName="ResourceBase">
+    <defName>Oil</defName>
+    <label>Oil</label>
+    <description>This metal is mostly used as a commodity currency. It can also be used for making attractive decorations.</description>
+    <graphicPath>Things/Item/Resource/Gems</graphicPath>
+    <graphicClass>Graphic_Single</graphicClass>
+    <resourceReadoutPriority>First</resourceReadoutPriority>
+    <soundInteract>Silver_Drop</soundInteract>
+    <soundDrop>Silver_Drop</soundDrop>
+    <useStandardHealth>false</useStandardHealth>
+    <statBases>
+      <MarketValue>5</MarketValue>
+      <MeleeWeapon_SharpDamageMultiplier>0.5</MeleeWeapon_SharpDamageMultiplier>
+      <MeleeWeapon_BluntDamageMultiplier>1.1</MeleeWeapon_BluntDamageMultiplier>
+    </statBases>
+    <thingCategories>
+      <li>Items</li>
+    </thingCategories>
+    <stackLimit>8</stackLimit>
+    <stuffProps>
+      <constructEffect>ConstructMetal</constructEffect>
+      <soundImpactStuff>BulletImpactMetal</soundImpactStuff>
+      <statOffsets>
+        <Beauty>-8</Beauty>
+      </statOffsets>
+      <statFactors>
+        <MaxHealth>0.7</MaxHealth>
+        <Flammability>1</Flammability>
+        <Beauty>-3</Beauty>
+        <WorkToMake>1.2</WorkToMake>
+        <MeleeWeapon_Cooldown>1</MeleeWeapon_Cooldown>
+      </statFactors>
+    </stuffProps>
+	<tradeTags>
+      <li>Exotic</li>
+    </tradeTags>
+  </ThingDef>
+  
+  <!-- Stone Age Shizznit -->
+  
+    <ThingDef ParentName="ResourceBase">
+    <defName>Bone</defName>
+    <label>Bone</label>
+    <description>An animal bone, can be used to create some advanced, high-damage weapons.</description>
+    <graphicPath>Things/Item/Resource/Bone</graphicPath>
+    <graphicClass>Graphic_Single</graphicClass>
+    <soundInteract>Wood_Drop</soundInteract>
+    <soundDrop>Wood_Drop</soundDrop>
+    <statBases>
+      <MaxHealth>65</MaxHealth>
+      <Flammability>0.1</Flammability>
+      <MarketValue>5</MarketValue>
+    </statBases>
+	<stuffProps>
+      <categories>
+        <li>Bony</li>
+      </categories>
+      <color>(215,205,190)</color>
+	       <statOffsets>
+        <ArmorRating_Blunt>0.2</ArmorRating_Blunt>
+        <ArmorRating_Sharp>0.5</ArmorRating_Sharp>
+        <ArmorRating_Heat>1</ArmorRating_Heat>
+        <ArmorRating_Electric>1</ArmorRating_Electric>
+      </statOffsets>
+      <statFactors>
+        <ArmorRating_Blunt>0.5</ArmorRating_Blunt>
+        <ArmorRating_Sharp>0.7</ArmorRating_Sharp>
+        <ArmorRating_Heat>1</ArmorRating_Heat>
+        <ArmorRating_Electric>1.5</ArmorRating_Electric>
+      </statFactors>
+    </stuffProps>
+    <thingCategories>
+      <li>ResourcesRaw</li>
+    </thingCategories>
+    <stackLimit>100</stackLimit>
+  </ThingDef>
+
+</Resources>

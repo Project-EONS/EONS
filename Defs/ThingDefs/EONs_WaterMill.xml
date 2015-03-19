@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ThingDefs>
+
+
+
+
+  
+  
+  <ThingDef>
+	<category>Building</category>
+    <soundImpactDefault>BulletImpactMetal</soundImpactDefault>
+    <selectable>true</selectable>
+    <drawerType>MapMeshAndRealTime</drawerType>
+    <terrainAffordanceNeeded>Any</terrainAffordanceNeeded>
+    <repairEffect>Repair</repairEffect>
+    <leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
+    <filthLeaving>BuildingRubble</filthLeaving>
+    <DefName>WaterMill</DefName>
+	<ThingClass>Building_PowerPlantSteam</ThingClass>
+    <label>Water mill</label>
+	<EType>Building_PowerPlantGeothermal</EType>
+    <Description>WaterMill.</Description>
+    <graphicPath>Things/Building/WaterMill</graphicPath>
+    <graphicClass>Graphic_Single</graphicClass>
+	<constructEffect>ConstructWood</constructEffect>
+    <CostList>
+      <WoodLog>75</WoodLog>
+    </CostList>
+    <AltitudeLayer>Waist</AltitudeLayer>
+    <fillPercent>0.5</fillPercent>
+    <UseStandardHealth>True</UseStandardHealth>
+    <statBases>
+      <WorkToMake>800</WorkToMake>
+      <MaxHealth>180</MaxHealth>
+      <Flammability>1.0</Flammability>
+    </statBases>
+    <Size>(3,2)</Size>
+    <graphicOverdraw>False</graphicOverdraw>
+	<placeWorkers>
+      <li>EONs.PlaceWorker_OnWater</li>
+    </placeWorkers>
+    <DesignationCategory>StoneAge</DesignationCategory>
+    <Passability>PassThroughOnly</Passability>
+    <pathCost>70</pathCost>
+    <hasInteractionCell>True</hasInteractionCell>
+    <interactionSquareOffset>(0,0,-1)</interactionSquareOffset>
+    <itemSurface>True</itemSurface>
+	<comps>
+			<li>
+				<compClass>CompPowerTrader</compClass>
+				<basePowerConsumption>-200</basePowerConsumption>
+				<transmitsPower>true</transmitsPower>
+				<powerToggleable>false</powerToggleable>
+			</li>
+	</comps>		
+	
+    <inspectorTabs>
+      <li>ITab_Bills</li>
+    </inspectorTabs>
+    <building>
+      <spawnedConceptLearnOpportunity>BillsTab</spawnedConceptLearnOpportunity>
+    </building>
+   <!-- <researchPrerequisite></researchPrerequisite> -->
+  </ThingDef>
+  
+  
+</ThingDefs>

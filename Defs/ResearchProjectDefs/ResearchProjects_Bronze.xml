@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ResearchProjectDefs>
+
+<!-- Efficient Agriculture -->
+
+  <ResearchProjectDef>
+    <defName>Bronze_AgricultureEff</defName>
+    <label>Efficient agriculture</label>
+    <description>Everything will grow faster due to all soil fertility going up a few notches.</description>
+	<descriptionDiscovered>While one of your villagers were out and about, he tripped and mixed his highly experimental soil with normal soil. It caused a bio-effect, and then all of the soil in your chunk of land was made to be fertile!</descriptionDiscovered>
+    <totalCost>300</totalCost>
+	<researchMods>
+      <li>
+        <specialAction>EONs.Improvisation.Efficient_Agriculture</specialAction>
+      </li>
+    </researchMods>
+    <prerequisites></prerequisites>
+  </ResearchProjectDef>
+
+</ResearchProjectDefs>
